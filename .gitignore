@@ -1,0 +1,9 @@
+*/*/
+*.*
+
+!images/
+!images/*
+!*.md
+!*.png
+
+!*.gitignore
