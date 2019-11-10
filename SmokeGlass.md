@@ -10,6 +10,8 @@
 |SmokeGlassUnlit|Unlitシェーダに基づく曇りガラスシェーダ|
 |SmokeGlassUnlitCullOff|Unlitシェーダに基づく曇りガラスシェーダ（両面描画版）|
 
+![SmokeGlassStandard](images/smoke_glass_standard.png)
+
 ## Smoke Texture (Specified)
 
 ここには曇り状態を表すCustomRenderTextureを指定します。
