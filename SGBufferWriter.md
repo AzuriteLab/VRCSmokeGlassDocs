@@ -1,4 +1,10 @@
-﻿# SGHitBufferWriterのパラメータ解説
+﻿# SGHitBufferWriterシェーダのパラメータ解説
+
+SGHitBufferWriterシェーダは平行投影カメラから取得できた深度情報を曇りガラスの曇り度合いの情報に変換するための、
+CustomRenderTexture専用シェーダです。
+お好みに合わせて [SmokeGlassシェーダ](SmokeGlass.md) と併せて設定していくことになります。
+
+![SmokeGlassStandard](images/sghitbuffer_writer.png)
 
 ## Render Texture
 
