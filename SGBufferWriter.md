@@ -1,62 +1,62 @@
-# SGHitBufferWriter�̃p�����[�^���
+﻿# SGHitBufferWriterのパラメータ解説
 
 ## Render Texture
 
-�����ɂ͕��s���e�J�����Ŏ擾���ꂽ�[�x�o�b�t�@���i�[�����Render Texture���w�肵�܂��B
-�����Ɏw�肷����̂͌Œ�ƂȂ�܂��̂ŁA��{�I�Ɉ�x�ݒ肵����ύX�͂��Ȃ��ł��������B
+ここには平行投影カメラで取得された深度バッファが格納されるRender Textureを指定します。
+ここに指定するものは固定となりますので、基本的に一度設定したら変更はしないでください。
 
 ## Tolerance
 
-����͐[�x���̂ǂꂮ�炢�̋����𓖂��蔻��Ƃ��Ĉ����������߂���̂ł��B
-�f�t�H���g�� `0.99` �̂��߁A������ł��邾���ύX���Ȃ��悤�ɂ��܂��傤�B
+これは深度情報のどれぐらいの距離を当たり判定として扱うかを決めるものです。
+デフォルトは `0.99` のため、これもできるだけ変更しないようにしましょう。
 
 ## Using blur
 
-�܂��Ă��镔���̃G�b�W���ڂ������ǂ����ł��B
-�ڂ������Ƃɂ�胊�A���ȓ܂������o�ł��܂����A�w�ŕ����������肷��ꍇ�͂�����I�t�ɂ���Ɨǂ��ł��傤�B
-�L��/�����{�^����p�ӂ���̂������Ǝv���܂��B
+曇っている部分のエッジをぼかすかどうかです。
+ぼかすことによりリアルな曇り具合を演出できますが、指で文字書いたりする場合はこれをオフにすると良いでしょう。
+有効/無効ボタンを用意するのもいいと思います。
 
 ## Reset
 
-���̃`�F�b�N�{�b�N�X��on�ɂ���ƃf�t�H���g�̏�Ԃɂ��ǂ��܂��B
-���Ő������� `Enable Restoration` ���I�t�ɂ��Ă���ꍇ�Ɏg���܂��B
-���[���h���Ƀ{�^����ݒu���A�����L�����đ����ɖ����ɂ��邱�Ƃœ܂��Ă��Ȃ���Ԃɂ��ǂ��邽�߁A
-���̂悤�Ȏg������z�肵�Ă��܂��B
+このチェックボックスをonにするとデフォルトの状態にもどせます。
+次で説明する `Enable Restoration` をオフにしている場合に使います。
+ワールド内にボタンを設置し、これを有効して即座に無効にすることで曇っていない状態にもどせるため、
+そのような使い方を想定しています。
 
 ## Enable Restoration
 
-�����L���ɂ��邱�Ƃɂ���ē܂��@������Ԃ��珙�X�ɓ܂�����Ԃ֖߂�@�\��L���ɂł��܂��B
-�t�ɖ����ɂ��邱�Ƃɂ���Đ@������Ԃ���߂�Ȃ����邱�Ƃ��ł��܂��B
-�����ɂ���ꍇ�͏�L�� `Reset` �����킹�ă��Z�b�g�{�^���Ȃǂ�p�ӂ���Ɨǂ��ł��傤�B
+これを有効にすることによって曇りを拭った状態から徐々に曇った状態へ戻る機構を有効にできます。
+逆に無効にすることによって拭った状態から戻らなくすることもできます。
+無効にする場合は上記の `Reset` を合わせてリセットボタンなどを用意すると良いでしょう。
 
 ## Restoration Settings
 
-`Enable Restoration` ��L���ɂ���Ƃ��̐ݒ肪�g�O������܂��B
+`Enable Restoration` を有効にするとこの設定がトグルされます。
 
 ### Resolution
 
-�܂�����Ԃ��珙�X�ɖ߂�i�K�̒l�ł��B�f�t�H���g�� `0.002` �ŁA���ꂪ�ŏ��l�ƂȂ�܂��B
-���̒l�͏������ق��Y��ɖ߂��Ă����̂Ŋ�{�I�Ƀf�t�H���g���ǂ��ł��傤�B
+曇った状態から徐々に戻る段階の値です。デフォルトは `0.002` で、これが最小値となります。
+この値は小さいほど綺麗に戻っていくので基本的にデフォルトが良いでしょう。
 
 ### Speed
 
-�܂�����Ԃ���߂鑬�x�ł��B�f�t�H���g��4�ŁA���l��傫�����邱�Ƃɂ��x���o���܂��B
-�ő�l��10�ƂȂ��Ă��܂��̂ŁA����͌�q���� `Interpolation Type` �ƕ����Ē������Ă��������B
+曇った状態から戻る速度です。デフォルトは4で、数値を大きくすることにより遅く出来ます。
+最大値は10となっていますので、これは後述する `Interpolation Type` と併せて調整してください。
 
 ### Interpolation Type
 
-���X�ɖ߂�ꍇ�A�ǂ̂悤�Ȗ߂�������邩�ł��B�f�t�H���g�� `Linear` �ł��B
+徐々に戻る場合、どのような戻り方をするかです。デフォルトは `Linear` です。
 
 * Linear
-** ���`��Ԃł��B��Ɉ��̑��x�Ŗ߂��Ă����܂��B
+** 線形補間です。常に一定の速度で戻っていきます。
 * Hermite
-** �G���~�[�g��Ԃł��B2�̓_����ɖ߂鑬�x�ɗh�炬���������邱�Ƃ��o���܂��B
+** エルミート補間です。2つの点を基準に戻る速度に揺らぎを持たせることが出来ます。
 
 ### hermite Interpolation
 
-`Interpolation Type` �ɂ� `Hermite` ���w�肵�����Ƀg�O������鍀�ڂł��B
+`Interpolation Type` にて `Hermite` を指定した時にトグルされる項目です。
 
 #### Left Point, Right Point
 
-�G���~�[�g��Ԃ�2�̃|�C���g��ݒ肵�܂��B
+エルミート補間の2つのポイントを設定します。
 https://thebookofshaders.com/glossary/?search=smoothstep

@@ -1,60 +1,60 @@
-# SmokeGlass�V�F�[�_
+﻿# SmokeGlassシェーダ
 
-���ۂ̓܂�K���X�̕\�����s���V�F�[�_�ł��B4�̃V�F�[�_���p�ӂ���Ă��܂��̂ŃV�[���ɂ���Ă��g�������������B
-�p�����[�^�̉�������Ă��܂����AUnlit�łɂ͂������̃p�����[�^�����݂��܂���B
+実際の曇りガラスの表現を行うシェーダです。4つのシェーダが用意されていますのでシーンによってお使い分け下さい。
+パラメータの解説をしていますが、Unlit版にはいくつかのパラメータが存在しません。
 
-|�V�F�[�_��|����|
+|シェーダ名|説明|
 |:--|:--|
-|SmokeGlassStandard|Standard�V�F�[�_�Ɋ�Â��܂�K���X�V�F�[�_|
-|SmokeGlassStandardCullOff|Standard�V�F�[�_�Ɋ�Â��܂�K���X�V�F�[�_�i���ʕ`��Łj|
-|SmokeGlassUnlit|Unlit�V�F�[�_�Ɋ�Â��܂�K���X�V�F�[�_|
-|SmokeGlassUnlitCullOff|Unlit�V�F�[�_�Ɋ�Â��܂�K���X�V�F�[�_�i���ʕ`��Łj|
+|SmokeGlassStandard|Standardシェーダに基づく曇りガラスシェーダ|
+|SmokeGlassStandardCullOff|Standardシェーダに基づく曇りガラスシェーダ（両面描画版）|
+|SmokeGlassUnlit|Unlitシェーダに基づく曇りガラスシェーダ|
+|SmokeGlassUnlitCullOff|Unlitシェーダに基づく曇りガラスシェーダ（両面描画版）|
 
 ![SmokeGlassStandard](images/smoke_glass_standard.png)
 
 ## Smoke Texture (Specified)
 
-�����ɂ͓܂��Ԃ�\��CustomRenderTexture���w�肵�܂��B
-����SGHitBufferWriter�V�F�[�_�����蓖�Ă�CustomRenderTexture�ł��B
-�����͂���ȊO�w�肵�悤������܂���̂ŌŒ�ƂȂ�܂��B
+ここには曇り状態を表すCustomRenderTextureを指定します。
+即ちSGHitBufferWriterシェーダを割り当てたCustomRenderTextureです。
+ここはこれ以外指定しようがありませんので固定となります。
 
 ## Texture
 
-�����A���̉���⑚�Ȃǖ͗l���K���X�ɂ������ꍇ�͂��̃e�N�X�`�����w�肵�܂��B
-Booth�w�����ꂽ���ɂ͓��T�Ƃ��Đ���ނ��Ă���܂��B
-���ꂪ���邱�Ƃł��Տꊴ�������܂����A��q���� `Cloudiness` �p�����[�^�ɂ��܂��Ԃ͍Č��ł��܂��B
+もし、窓の汚れや霜など模様をガラスにつけたい場合はこのテクスチャを指定します。
+Booth購入された方には特典として数種類つけております。
+これがあることでより臨場感が増しますが、後述する `Cloudiness` パラメータにより曇り状態は再現できます。
 
 ## Texture Power
 
-`Texture` ���ǂ̊����œK�p���邩�ł��B�l�̃t�B�[�����O�ł����߂��������B
+`Texture` をどの割合で適用するかです。個人のフィーリングでお決めください。
 
 ## Normal
 
-�����A���̉���⑚�Ȃǖ͗l���K���X�ɂ������ꍇ�͂����Ƀm�[�}���e�N�X�`�����w�肵�܂��B
-Booth�w�����ꂽ���ɂ͓��T�Ƃ��Đ���ނ��Ă���܂��B
-���ꂪ���邱�Ƃł��Տꊴ�������܂����A��q���� `Cloudiness` �p�����[�^�ɂ��܂��Ԃ͍Č��ł��܂��B
+もし、窓の汚れや霜など模様をガラスにつけたい場合はここにノーマルテクスチャを指定します。
+Booth購入された方には特典として数種類つけております。
+これがあることでより臨場感が増しますが、後述する `Cloudiness` パラメータにより曇り状態は再現できます。
 
 ## Cloudiness
 
-�����ȓ܂��Ԃ̒l�ł��B
-1�ɂ��邱�ƂŊ��S�ɓ܂�����Ԃɂł��܂����A�ɒ[�Ȃ��߂������l�̃t�B�[�����O�ł����߂��������B
+純粋な曇り状態の値です。
+1にすることで完全に曇った状態にできますが、極端なためここも個人のフィーリングでお決めください。
 
 ## MaskSettings
 
-�}�X�N�̐ݒ�ł��BRenderTexture�̓�����A���̃K���X�͐����`�������܂���B
-�����ŁA������x�̐����`�̑傫���ō��A�����̃}�X�N�ŏc�����ς��邱�Ƃɂ���ăK���X�̑傫����ύX���܂��B
-�����Ń}�X�N���w�肳�ꂽ�ꏊ�͖@���������Ȃ����ߊ��S�ɓ����ƂȂ�܂��B
+マスクの設定です。RenderTextureの特性上、このガラスは正方形しか作れません。
+そこで、ある程度の正方形の大きさで作り、ここのマスクで縦横比を変えることによってガラスの大きさを変更します。
+ここでマスクが指定された場所は法線情報も乗らないため完全に透明となります。
 
 ### Width
 
-�K���X�̉��̔䗦�ł��B
+ガラスの横の比率です。
 
 ### Height
 
-�K���X�̏c�̔䗦�ł��B
+ガラスの縦の比率です。
 
 ## Standard Properties
 
-Standard�V�F�[�_�ɂ���p�����[�^�������Ă��܂����B
-`Glossiness` �� `Metallic` ��ݒ肷�邱�Ƃɂ�����\�����Č��ł��܂��B
-���������ɐݒ肵�Ă��������B
+Standardシェーダにあるパラメータを持ってきました。
+`Glossiness` と `Metallic` を設定することにより光沢表現を再現できます。
+いい感じに設定してください。
