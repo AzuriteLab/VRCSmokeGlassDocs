@@ -23,6 +23,16 @@
 
 ## 1.RenderTextureを作成する
 
+`Project`で右クリックし、メニューを開き、`Create` -> `Render Texture` の順番で選択して `Render Texure` を作成してください。
+
+![render_texture](images/create_rendertex.png)
+
+そして、作成された `Render Texture` を選択し、Inspectorから `Color Format` を `Depth` に変更します。<br>
+このとき、`Size` の項目もデフォルトの `256x256` では小さすぎるため、`1024x1024` や `2048x2048` あたりに設定すると良いでしょう。
+（もちろんサイズを増やすと負荷が増えます。一応推奨値は `1024x1024` です）
+
+![render_texture_setup](images/setup_rendertex.png)
+
 ## 2.平行投影カメラを作成し、RenderTextureを割り当てる
 
 ## 3.CustomRenderTexture用マテリアルを作成する
