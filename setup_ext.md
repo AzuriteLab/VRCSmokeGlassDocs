@@ -87,7 +87,7 @@
 * `Reset` は曇り状態リセット用です。 `Enable Restoration` をオフにしているときはこれを即座にon/offするボタンを作ってあげると喜ばれます。
 * `Enable Restoration` は基本的にonにしておきましょう。これを有効にすることで拭った場所が徐々に曇った状態へ戻ります。
 
-![setup_writer](iamges/setup_writer.png) 
+![setup_writer](images/setup_writer.png) 
 
 補間方法など詳しいパラメータの説明は [SGHitBufferWriterシェーダのパラメータ解説](SGBufferWriter.md) を参照してください。
 
