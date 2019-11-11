@@ -20,9 +20,9 @@ Boothよりご購入頂いた方はセットアップ済みのprefabをつけて
 * [このシェーダの特徴](detail.md)
 * [曇りガラスシェーダの作成方法](howto_use.md)
 * [Boothで購入頂いた方向け](howto_use_for_customer.md)
-* シェーダリファレンス
- * [SGHitBufferWriterシェーダ](SGBufferWriter.md)
- * [SmokeGlassシェーダ](SmokeGlass.md)
+* *シェーダリファレンス*
+  * [SGHitBufferWriterシェーダ](SGBufferWriter.md)
+  * [SmokeGlassシェーダ](SmokeGlass.md)
 * [逆引きリファレンス](tips.md)
 * [諸注意](warnings.md)
 

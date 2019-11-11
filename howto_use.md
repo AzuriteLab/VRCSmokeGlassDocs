@@ -2,12 +2,12 @@
 
 ここでは曇りガラスシェーダを使い1からセットアップする方法を紹介します。
 
-1. [RenderTextureを作成する](#1.RenderTextureを作成する)
-2. [平行投影カメラを作成し、RenderTextureを割り当てる](#2.平行投影カメラを作成し、RenderTextureを割り当てる) 
-3. [CustomRenderTexture用マテリアルを作成する](#3.CustomRenderTexture用マテリアルを作成する)
-4. [CustomRenderTextureを作成し、マテリアルを割り当てる](#4.CustomRenderTextureを作成し、マテリアルを割り当てる)
-5. [表示用の板をカメラと同じサイズで用意、位置合わせをする](#5.表示用の板をカメラと同じサイズで用意、位置合わせをする)
-6. [表示用のシェーダのマテリアルを作成し、割り当てる](#6.表示用のシェーダのマテリアルを作成し、割り当てる)
+1. [RenderTextureを作成する](#1RenderTextureを作成する)
+2. [平行投影カメラを作成し、RenderTextureを割り当てる](#2平行投影カメラを作成しRenderTextureを割り当てる) 
+3. [CustomRenderTexture用マテリアルを作成する](#3CustomRenderTexture用マテリアルを作成する)
+4. [CustomRenderTextureを作成し、マテリアルを割り当てる](#4CustomRenderTextureを作成しマテリアルを割り当てる)
+5. [表示用の板をカメラと同じサイズで用意、位置合わせをする](#5表示用の板をカメラと同じサイズで用意位置合わせをする)
+6. [表示用のシェーダのマテリアルを作成し、割り当てる](#6表示用のシェーダのマテリアルを作成し割り当てる)
 
 また、無料配布のunitypackageにはprefabが一つ含まれています。
 それをHierarchyにドロップすることで初めから使える状態になります。
