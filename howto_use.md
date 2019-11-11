@@ -23,7 +23,9 @@
 
 ## 1.RenderTextureを作成する
 
-`Project`で右クリックし、メニューを開き、`Create` -> `Render Texture` の順番で選択して `Render Texure` を作成してください。
+まず深度情報（ガラスからどれだけ近いのか）を取得するために `Render Texture` を作成します。
+
+`Projectエリア`で右クリックし、メニューを開き、`Create` -> `Render Texture` の順番で選択して `Render Texure` を作成してください。
 
 ![render_texture](images/create_rendertex.png)
 
@@ -34,6 +36,27 @@
 ![render_texture_setup](images/setup_rendertex.png)
 
 ## 2.平行投影カメラを作成し、RenderTextureを割り当てる
+
+次に深度情報を写すためのカメラを作成します。
+
+`Hierarchy` の空いているスペースで右クリックし、`Camera` を選択してカメラを作成します。
+
+![create_camera](images/create_camera.png)
+
+次に作成されたカメラを選択し、`Hierarchy` に表示された設定を行っていくのですが、ここは項目が多いです。
+
+* `Clear Flags` を `Solid Color` にして `Background` を真っ黒の状態にします
+  * 深度は赤で書き込まれるので赤の情報が入っていなければなんでもいいです
+* `Projection` を `Orthographic` にします
+  * これにより平行投影カメラになります。`Size`についてはガラスの大きさに直結するため、[平行投影カメラとTolerance、表示面の調整](tips.md#平行投影カメラとTolerance、表示面の調整)で解説しています。
+* `Clipping Planes` の `Far` を `5` に設定します。
+  * `5` はこちらで設定しているデフォルトの値です。
+  * シーン上でカメラの箱状のサイズが変わるかと思います。この範囲内に入ったオブジェクトの深度情報を取ることができます。
+* `Target Texture` に先ほど作成した `Render Texture` をドロップして設定します。
+* `Allow HDR` のチェックボックスを外します。
+* `Allow MSAA` のチェックボックスを外します。
+
+![setup_camera](images/setup_camera.png)
 
 ## 3.CustomRenderTexture用マテリアルを作成する
 
