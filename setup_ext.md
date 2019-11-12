@@ -10,8 +10,8 @@
 2. [平行投影カメラを作成し、RenderTextureを割り当てる](#2平行投影カメラを作成しRenderTextureを割り当てる) 
 3. [CustomRenderTexture用マテリアルを作成する](#3CustomRenderTexture用マテリアルを作成する)
 4. [CustomRenderTextureを作成し、マテリアルを割り当てる](#4CustomRenderTextureを作成しマテリアルを割り当てる)
-5. [表示用の板をカメラと同じサイズで用意、位置合わせをする](#5表示用の板をカメラと同じサイズで用意位置合わせをする)
-6. [表示用のシェーダのマテリアルを作成し、割り当てる](#6表示用のシェーダのマテリアルを作成し割り当てる)
+5. [表示用のシェーダのマテリアルを作成する](#5表示用のシェーダのマテリアルを作成する)
+6. [表示用の板をカメラと同じサイズで用意、位置合わせをする](#6表示用の板をカメラと同じサイズで用意位置合わせをする)
 
 また、無料配布のunitypackageにはprefabが一つ含まれています。
 それをHierarchyにドロップすることで初めから使える状態になります。
@@ -29,7 +29,7 @@
 
 まず深度情報（ガラスからどれだけ近いのか）を取得するために `Render Texture` を作成します。
 
-`Projectエリア`で右クリックし、メニューを開き、`Create` -> `Render Texture` の順番で選択して `Render Texure` を作成してください。
+`Projectウィンドウ`で右クリックし、メニューを開き、`Create` -> `Render Texture` の順番で選択して `Render Texure` を作成してください。
 
 ![render_texture](images/create_rendertex.png)
 
@@ -97,10 +97,50 @@
 
 ## 4.CustomRenderTextureを作成し、マテリアルを割り当てる
 
-`Render Texture` の時と同じように、 `Projectエリア` の空いている部分を右クリックし、 `Create` -> `Custom Render Texture` の順に選択し、`Custom Render Texture` を作成します。
+`Render Texture` の時と同じように、 `Projectウィンドウ` の空いている部分を右クリックし、 `Create` -> `Custom Render Texture` の順に選択し、`Custom Render Texture` を作成します。
 
 ![create_customrendertex](images/create_customrendertex.png)
 
-## 5.表示用の板をカメラと同じサイズで用意、位置合わせをする
+そして、作成された `Custom Render Texture` を選択し、`Inspector` にて設定を行います。
 
-## 6.表示用のシェーダのマテリアルを作成し、割り当てる
+* `Size` は `Render Texture`と同じサイズが良いでしょう。（下の画像では `1024x1024` に変更しています）
+* `Aniso Level` は `0` に設定します
+* `Material` には [3.CustomRenderTexture用マテリアルを作成する](#3CustomRenderTexture用マテリアルを作成する) で作成したマテリアルを割り当てます
+  * `Shader Pass` は `UPDATE` にします
+* `Initialization Mode` は `OnLoad` に
+  * `Source` は `Texture and Color`に、そしてここの `Texture` には先ほど作成した `Render Texture` を指定しましょう
+* `Update Mode` は `Realtime` に
+  * `Double Buffered` にチェックを入れます
+* `Update Dozne` の `+` ボタンを押して一つ追加しておきます
+
+![setup_customrendertex](images/setup_customrendertex.png)
+
+## 5.表示用のシェーダのマテリアルを作成する
+
+これでカメラから深度情報を受け取り、それを曇り情報に変換し、シェーダによってガラスの質感へと変換させる準備ができました！
+
+最後にガラス面に適用するためのシェーダを設定すべくマテリアルを作成します。
+
+同じように `Projectウィンドウ`で右クリックし、メニューを開き、`Create` -> `Material` の順番で選択して `Material` を作成してください。
+
+![smokeglassmat](images/create_smokeglassmat.png)
+
+そして、作成された `Material` を `Inspector` からシェーダの変更とパラメータの設定を行います。
+
+* シェーダを `Standard` から `VRCSmokeGlass` -> `SmokeGlassStandard` に変更
+  * 4種類ありますが、今回は裏面表示も行わない通常のStandardシェーダの法則に則ったシェーダを選択します
+  * 詳細は [SmokeGlass.md](SmokeGlass.md) のリストを参照してください
+* 
+
+## 6.表示用の板をカメラと同じサイズで用意、位置合わせをする
+
+表示のための `Plane` を作成し、前項で作成したマテリアルを割り当てます。
+`Plane`を作成するとき、カメラの縦横サイズと同じサイズすることを忘れないでください。
+
+そして、カメラの縦横位置と `Plane` の位置を完全に合わせた上で `Plane` をカメラ範囲の直前に配置します。
+当たり判定は先ほど設定した `0.05m` 範囲内しかおこなわれないため、この範囲内に上手いこと設置します。
+（何度か試してうまい書き心地になるまでトライしてみてください。CubeやSphereで当たり判定を試して上手く拭えても実際にVR上で確認すると触れていないのに反応してしまったり、微妙だなぁとなることが多いです）
+
+これで曇りガラスの設置は完了となります。
+まずは動作確認として、何か適当なCubeやSphereを作成し、ガラス面に当ててみてください。その場所が拭えていれば成功です。
+あとはVRChatにログインしつつ納得がいくまで調整を重ねてください。
