@@ -22,6 +22,12 @@ CustomRenderTexture専用シェーダです。
 ぼかすことによりリアルな曇り具合を演出できますが、指で文字書いたりする場合はこれをオフにすると良いでしょう。
 有効/無効ボタンを用意するのもいいと思います。
 
+* Blurをonにした場合の表示
+![blur_on.png](blur_off.png)
+
+* Blurをoffにした場合の表示
+![blur_off.png](blur_off.png)
+
 ## Reset
 
 このチェックボックスをonにするとデフォルトの状態にもどせます。

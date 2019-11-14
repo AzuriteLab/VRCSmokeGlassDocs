@@ -2,22 +2,18 @@
 
 ver : 2019.11.09.0
 
-* [English Docs is HERE](index_en.md)
-
 ## はじめに
 
 曇りガラスシェーダ『VRCSmokeGlass』のセットアップと使い方を解説していきます。
 このシェーダは1台のカメラ、1枚のRenderTexture、1枚のCustomRenderTextureを利用しているため、
-セットアップ方法が少々複雑です。
+セットアップ方法が少々複雑なため、この手のギミックを導入し慣れている玄人向けです。
 
 Boothよりご購入頂いた方はセットアップ済みのprefabをつけていますので、
 そちらを元に設定を行なっていくことをお勧めします。
 
-* [変更履歴](patch_note.md)
-
 ## 目次
 
-* [このシェーダの特徴](detail.md)
+* [このシェーダの構成（はじめに読んでください）](detail.md)
 * [曇りガラスをprefabから導入する](setup_with_prefab.md)
 * [曇りガラスを一から導入する](setup_ext.md)
 * *シェーダリファレンス*

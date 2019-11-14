@@ -8,6 +8,7 @@ prefabでワールドに導入できる曇りガラスが原則として1枚の�
 （問題となるのは `RenderTexture` と `CustomRenderTexture` なのでそこだけ入れ替えても大丈夫ですが）
 
 1. [unitypackageをロードする](#1unitypackageをロードする)
+2. [prefabから曇りガラスをワールドに設置する](#2prefabから曇りガラスをワールドに設置する)
 
 細かいガラスの調整に関しては以下の逆引きリファレンスを読んでください。
 
@@ -17,3 +18,23 @@ prefabでワールドに導入できる曇りガラスが原則として1枚の�
 * [ガラスの模様と光沢表現](tips.md#ガラスの模様と光沢表現)
 
 ---
+
+## 1.unitypackageをロードする
+
+GithubのRelelasesからダウンロード、またはBoothで購入した場合はzipの中にunitypackageが入っています。
+
+それをUnityに直接ドロップ操作を行うか、以下の画像のように `Assets` -> `Import Package` -> `Custom Package` からインポートを行ってください。
+
+![import_package](images/import_package.png)
+
+## 2.prefabから曇りガラスをワールドに設置する
+
+prefabは `VRCSmokeGlass` フォルダ直下に設置しています（無料版は `SmokeGlass.prefab` のみ）。
+
+これを `Hierarchy` にドロップすることでワールド上に曇りガラスを配置することが出来ます。
+`SGFrostGlass.prefab` というprefabをロードするとHierarchyに以下の画像のように表示されます。
+
+![hierarchy](images/hierarchy.png)
+
+移動や回転をする場合は中にある `SmokeGlass` を動かさず、 `SGFrostStandard` という方を動かしてください。
+ガラスの拡大や縦横比率は普通のオブジェクトのように操作できません。[ガラスのマスクによる縦横比の調整](tips.md#ガラスのマスクによる縦横比の調整) を読んでください。
