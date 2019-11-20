@@ -22,7 +22,7 @@
 
 |prefab名|マテリアルパス|
 |:--|:--|
-|SGHitBufferWriter|`Assets/SGSmokeGlass/Material/SGHitBufferWriterMat.mat`|
+|-|`Assets/SGSmokeGlass/Material/SGHitBufferWriterMat.mat`|
 |SGStandard|`Assets/SGSmokeGlass/Material/DefaultSmokeGlass.mat`|
 |SGCrystal|`Assets/SGSmokeGlass/Material/SGCrystal.mat`|
 |SGDirt|`Assets/SGSmokeGlass/Material/SGDirt.mat`|
