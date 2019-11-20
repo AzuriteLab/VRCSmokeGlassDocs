@@ -29,7 +29,19 @@ GithubのRelelasesからダウンロード、またはBoothで購入した場合
 
 ## 2.prefabから曇りガラスをワールドに設置する
 
-prefabは `VRCSmokeGlass` フォルダ直下に設置しています（無料版は `SmokeGlass.prefab` のみ）。
+prefabは `VRCSmokeGlass` フォルダ直下に設置しています（無料版は `SGStandard.prefab`, `SGUnlit.prefab` のみ）。
+
+|prefab名|説明|
+|:--|:--|
+|SGStandard.prefab|テクスチャが設定されていない標準の曇りガラス|
+|SGUnlit.prefab|Unlit版曇りガラス|
+|SGCrystal.prefab|クリスタルのような霜のついた曇りガラス（BOOTH購入者限定）|
+|SGDirt.prefab|少し汚れた曇りガラス（BOOTH購入者限定）|
+|SGRain.prefab|水滴のついた曇りガラス（BOOTH購入者限定）|
+|SGFrost.prefab|霜に覆われた曇りガラス（BOOTH購入者限定）|
+|SGNoise.prefab|ざらざらした質感の曇りガラス（BOOTH購入者限定）|
+|SGNoise2.prefab|ざらざらした質感の曇りガラス（BOOTH購入者限定）|
+|SGUnlitTexture.prefab|Unlit版曇りガラスに霜テクスチャを足したもの（BOOTH購入者限定）|
 
 これを `Hierarchy` にドロップすることでワールド上に曇りガラスを配置することが出来ます。
 `SGFrostGlass.prefab` というprefabをロードするとHierarchyに以下の画像のように表示されます。

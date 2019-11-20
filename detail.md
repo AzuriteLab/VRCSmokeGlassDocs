@@ -16,14 +16,28 @@
 
 ![sg_detail.png](images/sg_detail.png)
 
-ユーザが弄るパラメータは赤文字で記載されている `SGHitBufferWriter` シェーダと `SmokeGlass` シェーダとなります※。
+ユーザが弄るパラメータは赤文字で記載されている `SGHitBufferWriter` シェーダと各 `SmokeGlass` シェーダとなります※。
 
-prefabを使って導入する場合、それぞれを設定してあるマテリアルは、
+用意されているprefabを使って導入する場合、それぞれを設定してあるマテリアルは、
 
+|prefab名|マテリアルパス|
+|:--|:--|
 |SGHitBufferWriter|`Assets/SGSmokeGlass/Material/SGHitBufferWriterMat.mat`|
-|SmokeGlass|`Assets/SGSmokeGlass/Material/SmokeGlassMat.mat`|
+|SGStandard|`Assets/SGSmokeGlass/Material/DefaultSmokeGlass.mat`|
+|SGCrystal|`Assets/SGSmokeGlass/Material/SGCrystal.mat`|
+|SGDirt|`Assets/SGSmokeGlass/Material/SGDirt.mat`|
+|SGRain|`Assets/SGSmokeGlass/Material/SGRain.mat`|
+|SGFrost|`Assets/SGSmokeGlass/Material/SGFrost.mat`|
+|SGNoise|`Assets/SGSmokeGlass/Material/SGNoise.mat`|
+|SGNoise2|`Assets/SGSmokeGlass/Material/SGNoise2.mat`|
+|SGUnlit|`Assets/SGSmokeGlass/Material/SGUnlit.mat`|
+|SGUnlitTexture|`Assets/SGSmokeGlass/Material/SGUnlitTexture.mat`|
 
-となります。
+となります。<br>
+たとえば、`SGStandard.prefab` を使う場合は、
+* `Assets/SGSmokeGlass/Material/SGHitBufferWriterMat.mat`
+* `Assets/SGSmokeGlass/Material/DefaultSmokeGlass.mat`
+が操作すべきマテリアルとなります。
 
 ※：<br>
 `SmokeGlass`は無料版でもついてくるものです。<br>
