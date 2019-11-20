@@ -23,10 +23,10 @@ CustomRenderTexture専用シェーダです。
 有効/無効ボタンを用意するのもいいと思います。
 
 * Blurをonにした場合の表示
-![images/blur_on.png](blur_off.png)
+![blur_on.png](images/blur_off.png)
 
 * Blurをoffにした場合の表示
-![images/blur_off.png](blur_off.png)
+![blur_off.png](images/blur_off.png)
 
 ## Reset
 
