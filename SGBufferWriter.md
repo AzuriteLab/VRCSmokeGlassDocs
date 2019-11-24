@@ -1,6 +1,6 @@
 ﻿# SGHitBufferWriterシェーダのパラメータ解説
 
-SGHitBufferWriterシェーダは平行投影カメラから取得できた深度情報を曇りガラスの曇り度合いの情報に変換するための、
+SGHitBufferWriterシェーダは、平行投影カメラから取得した深度情報を、曇りガラスの曇り度合いの情報に変換するための
 CustomRenderTexture専用シェーダです。
 お好みに合わせて [SmokeGlassシェーダ](SmokeGlass.md) と併せて設定していくことになります。
 
@@ -8,7 +8,7 @@ CustomRenderTexture専用シェーダです。
 
 ## Render Texture
 
-ここには平行投影カメラで取得された深度バッファが格納されるRender Textureを指定します。
+ここには平行投影カメラで取得された深度バッファが格納される`Render Texture`を指定します。
 ここに指定するものは固定となりますので、基本的に一度設定したら変更はしないでください。
 
 ## Tolerance
@@ -60,9 +60,9 @@ CustomRenderTexture専用シェーダです。
 徐々に戻る場合、どのような戻り方をするかです。デフォルトは `Linear` です。
 
 * Linear
-** 線形補間です。常に一定の速度で戻っていきます。
+  * 線形補間です。常に一定の速度で戻っていきます。
 * Hermite
-** エルミート補間です。2つの点を基準に戻る速度に揺らぎを持たせることが出来ます。
+  * エルミート補間です。2つの点を基準に戻る速度に揺らぎを持たせることが出来ます。
 
 ### hermite Interpolation
 
@@ -70,5 +70,5 @@ CustomRenderTexture専用シェーダです。
 
 #### Left Point, Right Point
 
-エルミート補間の2つのポイントを設定します。
+エルミート補間の2つのポイントを設定します。詳細は `smoothstep` で調べてください。
 https://thebookofshaders.com/glossary/?search=smoothstep
